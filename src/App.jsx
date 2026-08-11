@@ -29,32 +29,61 @@ export default function App() {
   const noticeTimeoutRef = useRef(null);
 
   const safeStorageGet = useCallback(async (key) => {
-    if (!window.storage?.get) return null;
-    try {
-      return await window.storage.get(key, false);
-    } catch {
-      return null;
+    if (window.storage?.get) {
+      try {
+        return await window.storage.get(key, false);
+      } catch {
+        // ignore storage read errors; fallback to localStorage
+      }
     }
+
+    if (window.localStorage) {
+      try {
+        return window.localStorage.getItem(key);
+      } catch {
+        // ignore localStorage read errors
+      }
+    }
+
+    return null;
   }, []);
 
   const safeStorageSet = useCallback((key, value) => {
-    if (!window.storage?.set) return;
-    try {
-      const maybePromise = window.storage.set(key, value, false);
-      if (maybePromise && typeof maybePromise.catch === "function") {
-        maybePromise.catch(() => {});
+    if (window.storage?.set) {
+      try {
+        const maybePromise = window.storage.set(key, value, false);
+        if (maybePromise && typeof maybePromise.catch === "function") {
+          maybePromise.catch(() => {});
+        }
+      } catch {
+        // ignore storage write errors
       }
-    } catch {
-      /* ignore storage write errors */
+    }
+
+    if (window.localStorage) {
+      try {
+        window.localStorage.setItem(key, value);
+      } catch {
+        // ignore localStorage write errors
+      }
     }
   }, []);
 
   const safeStorageDelete = useCallback(async (key) => {
-    if (!window.storage?.delete) return;
-    try {
-      await window.storage.delete(key, false);
-    } catch {
-      /* ignore storage delete errors */
+    if (window.storage?.delete) {
+      try {
+        await window.storage.delete(key, false);
+      } catch {
+        // ignore storage delete errors
+      }
+    }
+
+    if (window.localStorage) {
+      try {
+        window.localStorage.removeItem(key);
+      } catch {
+        // ignore localStorage delete errors
+      }
     }
   }, []);
 
@@ -63,9 +92,11 @@ export default function App() {
     (async () => {
       try {
         const res = await safeStorageGet(STORAGE_KEY);
-        const codes = res ? JSON.parse(res.value) : [];
-        setUsedCodes(codes);
-        setPool(ALL_LANGUAGES.filter((l) => !codes.includes(l.code)));
+        const raw = typeof res === "string" ? res : res?.value;
+        const codes = raw ? JSON.parse(raw) : [];
+        const uniqueCodes = Array.from(new Set(codes));
+        setUsedCodes(uniqueCodes);
+        setPool(ALL_LANGUAGES.filter((l) => !uniqueCodes.includes(l.code)));
       } catch {
         setUsedCodes([]);
         setPool(ALL_LANGUAGES);
@@ -126,7 +157,7 @@ export default function App() {
 
   const confirmLanguage = useCallback(() => {
     if (!displayLang) return;
-    const newUsed = [...usedCodes, displayLang.code];
+    const newUsed = Array.from(new Set([...usedCodes, displayLang.code]));
     setUsedCodes(newUsed);
     setPool(ALL_LANGUAGES.filter((l) => !newUsed.includes(l.code)));
     safeStorageSet(STORAGE_KEY, JSON.stringify(newUsed));
