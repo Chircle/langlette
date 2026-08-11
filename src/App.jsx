@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, useCallback } from "react";
 import { Play, Square, Check, RotateCcw, X, History, Loader2, Sun, Moon } from "lucide-react";
 import { ALL_LANGUAGES, PHRASES } from "./data/translationConfig.js";
 import chipTranslations from "./data/chipTranslations.json";
+import { PRELOADED_CORE_TRANSLATIONS } from "./data/preloadedCoreTranslations.js";
 
 const STORAGE_KEY = "used-languages";
 const THEME_KEY = "theme-preference";
@@ -130,6 +131,13 @@ export default function App() {
     return () => clearTimeout(noticeTimeoutRef.current);
   }, []);
 
+  useEffect(() => {
+    document.body.dataset.theme = theme;
+    return () => {
+      document.body.removeAttribute("data-theme");
+    };
+  }, [theme]);
+
   const toggleTheme = useCallback(() => {
     setTheme((prev) => {
       const next = prev === "dark" ? "light" : "dark";
@@ -239,6 +247,16 @@ export default function App() {
   const translateCustomText = useCallback(
     async (text, setLoadingFn, setResultFn) => {
       if (!activeLang) return;
+      const preloadedResult = PRELOADED_CORE_TRANSLATIONS?.[text]?.[activeLang.code];
+      if (preloadedResult?.translation && !preloadedResult.error) {
+        setResultFn({
+          translation: preloadedResult.translation,
+          transliteration: preloadedResult.transliteration || null,
+          error: false,
+        });
+        return;
+      }
+
       setLoadingFn(true);
       try {
         const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=de|${activeLang.code}`;
@@ -266,7 +284,11 @@ export default function App() {
   );
 
   const handleChipClick = async (phrase) => {
-    const chipResult = chipTranslations?.[phrase]?.[activeLang?.code];
+    const preloadedResult = PRELOADED_CORE_TRANSLATIONS?.[phrase]?.[activeLang?.code];
+    const chipResult = preloadedResult?.translation && !preloadedResult.error
+      ? preloadedResult
+      : chipTranslations?.[phrase]?.[activeLang?.code];
+
     if (!chipResult?.translation) {
       setTranslations((prev) => ({
         ...prev,
@@ -493,6 +515,22 @@ export default function App() {
    ein einziger Mint-Akzent, Mono-Font für die Klappanzeige.
 --------------------------------------------------------- */
 const CSS = `
+  body {
+    margin: 0;
+    min-height: 100vh;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  body[data-theme="dark"] {
+    background: #0d0f14;
+    color: #eef0f3;
+  }
+
+  body[data-theme="light"] {
+    background: #f4f5f3;
+    color: #171a19;
+  }
+
   .sr-root[data-theme="dark"] {
     --sr-bg: #0d0f14;
     --sr-board-grad-1: #171b22;
