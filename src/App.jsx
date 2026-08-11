@@ -173,6 +173,25 @@ export default function App() {
     setPhase("idle");
   }, []);
 
+  const selectUsedLanguage = useCallback((lang) => {
+    if (activeLang?.code === lang.code) {
+      setActiveLang(null);
+      setDisplayLang(null);
+      setTranslations({});
+      setCustomResult(null);
+      setCustomText("");
+      setPhase("idle");
+      return;
+    }
+
+    setActiveLang(lang);
+    setDisplayLang(null);
+    setTranslations({});
+    setCustomResult(null);
+    setCustomText("");
+    setPhase("active");
+  }, [activeLang]);
+
   const resetHistory = useCallback(async () => {
     await safeStorageDelete(STORAGE_KEY);
     setUsedCodes([]);
@@ -383,7 +402,14 @@ export default function App() {
             </div>
             <div className="sr-history-tags">
               {usedLangObjects.map((l) => (
-                <span className="sr-tag" key={l.code} title={`${l.de} · ${l.regions}`}>{l.native}</span>
+                <button
+                  className={"sr-tag" + (activeLang?.code === l.code ? " sr-tag-active" : "")}
+                  key={l.code}
+                  title={`${l.de} · ${l.regions}`}
+                  onClick={() => selectUsedLanguage(l)}
+                >
+                  {l.native}
+                </button>
               ))}
             </div>
           </div>
@@ -618,9 +644,18 @@ const CSS = `
   .sr-link:hover { text-decoration: underline; }
   .sr-history-tags { display: flex; flex-wrap: wrap; gap: 6px; }
   .sr-tag {
+    display: inline-flex; align-items: center; justify-content: center;
     font-family: 'JetBrains Mono', ui-monospace, monospace;
     font-size: 12px; padding: 4px 9px; border-radius: 6px;
     background: var(--sr-panel-2); border: 1px solid var(--sr-border); color: var(--sr-tag-text);
+    cursor: pointer; transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+  .sr-tag:hover { background: var(--sr-board-grad-2); border-color: var(--sr-border-hover); }
+  .sr-tag:focus { outline: 2px solid var(--sr-accent); outline-offset: 2px; }
+  .sr-tag-active {
+    background: var(--sr-accent);
+    color: var(--sr-accent-contrast);
+    border-color: var(--sr-accent-hover);
   }
 
   .sr-translator { width: 100%; display: flex; flex-direction: column; gap: 14px; }
