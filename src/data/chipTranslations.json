@@ -309,6 +309,42 @@
       "translation": "- ഗുഡ്‌ മോര്‍ണിംഗ്.",
       "transliteration": null,
       "error": false
+    },
+    "pt": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "es": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "ru": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "nl": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "zh": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "ar": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
     }
   },
   "Danke": {
@@ -613,6 +649,42 @@
       "translation": "വളരെ നന്ദി",
       "transliteration": null,
       "error": false
+    },
+    "pt": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "es": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "ru": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "nl": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "zh": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "ar": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
     }
   },
   "Bitte": {
@@ -916,6 +988,42 @@
       "translation": "റെഡി.",
       "transliteration": null,
       "error": false
+    },
+    "pt": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "es": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "ru": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "nl": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "zh": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "ar": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
     }
   },
   "Auf Wiedersehen": {
@@ -1218,6 +1326,42 @@
       "translation": "- Thank you.",
       "transliteration": null,
       "error": false
+    },
+    "pt": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "es": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "ru": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "nl": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "zh": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "ar": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
     }
   },
   "Wie geht es dir?": {
@@ -1521,6 +1665,42 @@
       "translation": "- ഒന്നുമില്ല.",
       "transliteration": null,
       "error": false
+    },
+    "pt": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "es": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "ru": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "nl": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "zh": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "ar": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
     }
   },
   "Ich liebe dich": {
@@ -1827,6 +2007,42 @@
       "translation": "- എട്ട്. -ഐ ലവ് യു.",
       "transliteration": null,
       "error": false
+    },
+    "pt": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "es": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "ru": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "nl": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "zh": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "ar": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
     }
   },
   "Prost!": {
@@ -2129,6 +2345,42 @@
       "translation": "ചിയേര്‍സ്",
       "transliteration": null,
       "error": false
+    },
+    "pt": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "es": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "ru": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "nl": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "zh": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "ar": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
     }
   },
   "Guten Appetit": {
@@ -2432,6 +2684,42 @@
       "translation": "ആസ്വദിക്ക്.",
       "transliteration": null,
       "error": false
+    },
+    "pt": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "es": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "ru": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "nl": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "zh": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "ar": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
     }
   },
   "Entschuldigung": {
@@ -2734,6 +3022,42 @@
       "translation": "വ്യ‌സനിക്കുന്നു",
       "transliteration": null,
       "error": false
+    },
+    "pt": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "es": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "ru": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "nl": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "zh": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "ar": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
     }
   },
   "Wo ist die Toilette?": {
@@ -3036,6 +3360,42 @@
       "translation": "ടോയ്‌ലറ്റ് എവിടെയാണ്?",
       "transliteration": null,
       "error": false
+    },
+    "pt": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "es": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "ru": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "nl": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "zh": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
+    },
+    "ar": {
+      "translation": null,
+      "transliteration": null,
+      "error": true,
+      "message": "missing translation"
     }
   }
 }

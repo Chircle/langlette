@@ -59,6 +59,12 @@ export const ALL_LANGUAGES = [
   { code: "te", de: "Telugu", en: "Telugu", native: "తెలుగు", regions: "Indien" },
   { code: "kn", de: "Kannada", en: "Kannada", native: "ಕನ್ನಡ", regions: "Indien" },
   { code: "ml", de: "Malayalam", en: "Malayalam", native: "മലയാളം", regions: "Indien" },
+  { code: "pt", de: "Portugiesisch", en: "Portuguese", native: "Português", regions: "Portugal, Brasilien, Angola, Mosambik, Kap Verde, São Tomé und Príncipe, Guinea-Bissau, Osttimor" },
+  { code: "es", de: "Spanisch", en: "Spanish", native: "Español", regions: "Spanien, Lateinamerika, USA" },
+  { code: "ru", de: "Russisch", en: "Russian", native: "Русский", regions: "Russland, Belarus, Kasachstan, Kirgisistan" },
+  { code: "nl", de: "Niederländisch", en: "Dutch", native: "Nederlands", regions: "Niederlande, Belgien, Suriname" },
+  { code: "zh", de: "Chinesisch", en: "Chinese", native: "中文", regions: "China, Taiwan, Singapur, Malaysia" },
+  { code: "ar", de: "Arabisch", en: "Arabic", native: "العربية", regions: "Naher Osten, Nordafrika" },
 ];
 
 export const PHRASES = [
