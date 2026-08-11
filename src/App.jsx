@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { Play, Square, Check, RotateCcw, X, History, Loader2, Sun, Moon } from "lucide-react";
-import { ALL_LANGUAGES, PHRASES } from "./data/translationConfig";
+import { ALL_LANGUAGES, PHRASES } from "./data/translationConfig.js";
 import chipTranslations from "./data/chipTranslations.json";
 
 const STORAGE_KEY = "used-languages";
