@@ -6,7 +6,7 @@ export const PRELOADED_CORE_TRANSLATIONS = {
       "error": false
     },
     "is": {
-      "translation": "Gott fÃ³lk",
+      "translation": "Góðan daginn",
       "transliteration": null,
       "error": false
     },
@@ -26,7 +26,7 @@ export const PRELOADED_CORE_TRANSLATIONS = {
       "error": false
     },
     "el": {
-      "translation": "ÎÎ±Î»Î·Î¼Î­ÏÎ±",
+      "translation": "Καλημέρα",
       "transliteration": null,
       "error": false
     },
@@ -157,7 +157,7 @@ export const PRELOADED_CORE_TRANSLATIONS = {
       "error": false
     },
     "ta": {
-      "translation": "à®à®¾à®²à¯ à®µà®£à®à¯à®à®®à¯",
+      "translation": "காலை வணக்கம்",
       "transliteration": null,
       "error": false
     },
@@ -172,10 +172,10 @@ export const PRELOADED_CORE_TRANSLATIONS = {
       "error": false
     },
     "sr": {
-      "translation": null,
+      "translation": "Добро јутро",
       "transliteration": null,
-      "error": true,
-      "message": "HTTP 200"
+      "error": false,
+      "message": null
     },
     "mg": {
       "translation": "Salama daholo",
@@ -203,7 +203,7 @@ export const PRELOADED_CORE_TRANSLATIONS = {
       "error": false
     },
     "ne": {
-      "translation": "à¤¶à¥à¤­ à¤ªà¥à¤°à¤­à¤¾à¤¤",
+      "translation": "शुभ प्रभात",
       "transliteration": null,
       "error": false
     },
@@ -263,10 +263,10 @@ export const PRELOADED_CORE_TRANSLATIONS = {
       "error": false
     },
     "ku": {
-      "translation": null,
+      "translation": "Beyanî baş",
       "transliteration": null,
-      "error": true,
-      "message": "HTTP 200"
+      "error": false,
+      "message": null
     },
     "ps": {
       "translation": "سهار مو پخير",
@@ -279,7 +279,7 @@ export const PRELOADED_CORE_TRANSLATIONS = {
       "error": false
     },
     "pa": {
-      "translation": "à¨¶à©à¨­ à¨¸à¨µà©à¨°",
+      "translation": "ਸ਼ੁਭ ਸਵੇਰ",
       "transliteration": null,
       "error": false
     },
@@ -304,10 +304,10 @@ export const PRELOADED_CORE_TRANSLATIONS = {
       "error": false
     },
     "pt": {
-      "translation": null,
+      "translation": "Bom dia.",
       "transliteration": null,
-      "error": true,
-      "message": "missing translation"
+      "error": false,
+      "message": null
     },
     "es": {
       "translation": null,
