@@ -423,7 +423,7 @@ export const UNIFIED_TRANSLATIONS = {
       "message": null
     },
     "ko": {
-      "translation": "goma woyo",
+      "translation": "고마워요",
       "transliteration": null,
       "error": false,
       "message": null
