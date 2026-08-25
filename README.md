@@ -55,6 +55,7 @@ npm run preview
 
 - API translations are cached in `src/data/chipTranslations.json`.
 - Curated corrections are stored in `src/data/preloadedCoreTranslations.js` and take priority over the cache.
+- Additional quality corrections are stored in `src/data/curatedTranslationOverrides.js` and take highest priority.
 - The app combines both sources at runtime in `src/data/translationData.js`.
 - Source phrases and language configuration live in `src/data/translationConfig.js`.
 - Free custom input translations use the MyMemory API (`https://api.mymemory.translated.net/get`).

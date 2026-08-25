@@ -1,6 +1,7 @@
-import chipTranslations from "./chipTranslations.json";
+import chipTranslations from "./chipTranslations.json" with { type: "json" };
 import { ALL_LANGUAGES, PHRASES } from "./translationConfig.js";
 import { PRELOADED_CORE_TRANSLATIONS } from "./preloadedCoreTranslations.js";
+import { CURATED_TRANSLATION_OVERRIDES } from "./curatedTranslationOverrides.js";
 
 function normalizeEntry(entry) {
   if (!entry || typeof entry !== "object") {
@@ -25,6 +26,11 @@ function normalizeEntry(entry) {
 }
 
 function resolveEntry(phrase, languageCode) {
+  const curated = CURATED_TRANSLATION_OVERRIDES?.[phrase]?.[languageCode];
+  if (curated) {
+    return normalizeEntry({ translation: curated });
+  }
+
   const preloaded = PRELOADED_CORE_TRANSLATIONS?.[phrase]?.[languageCode];
   if (preloaded?.translation && !preloaded.error) {
     return normalizeEntry(preloaded);

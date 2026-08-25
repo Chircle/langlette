@@ -515,7 +515,7 @@ export const PRELOADED_CORE_TRANSLATIONS = {
       "error": false
     },
     "ne": {
-      "translation": "à¤§à¤¨à¥à¤¯à¤µà¤¾à¤¦ à¤,",
+      "translation": "धन्यवाद",
       "transliteration": null,
       "error": false
     },
@@ -854,7 +854,7 @@ export const PRELOADED_CORE_TRANSLATIONS = {
       "error": false
     },
     "ne": {
-      "translation": "Nepali",
+      "translation": "कृपया",
       "transliteration": null,
       "error": false
     },
@@ -1192,7 +1192,7 @@ export const PRELOADED_CORE_TRANSLATIONS = {
       "error": false
     },
     "ne": {
-      "translation": "thik cha.",
+      "translation": "तपाईंलाई कस्तो छ?",
       "transliteration": null,
       "error": false
     },
@@ -1327,6 +1327,48 @@ export const PRELOADED_CORE_TRANSLATIONS = {
       "transliteration": null,
       "error": true,
       "message": "missing translation"
+    }
+  },
+  "Auf Wiedersehen": {
+    "ne": {
+      "translation": "फेरि भेटौँला",
+      "transliteration": null,
+      "error": false
+    }
+  },
+  "Ich liebe dich": {
+    "ne": {
+      "translation": "म तिमीलाई माया गर्छु",
+      "transliteration": null,
+      "error": false
+    }
+  },
+  "Prost!": {
+    "ne": {
+      "translation": "चियर्स!",
+      "transliteration": null,
+      "error": false
+    }
+  },
+  "Guten Appetit": {
+    "ne": {
+      "translation": "मिठो खानुहोस्!",
+      "transliteration": null,
+      "error": false
+    }
+  },
+  "Entschuldigung": {
+    "ne": {
+      "translation": "माफ गर्नुहोस्",
+      "transliteration": null,
+      "error": false
+    }
+  },
+  "Wo ist die Toilette?": {
+    "ne": {
+      "translation": "शौचालय कहाँ छ?",
+      "transliteration": null,
+      "error": false
     }
   }
 };
