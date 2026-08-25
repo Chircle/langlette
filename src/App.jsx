@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { Play, Square, Check, RotateCcw, X, History, Loader2, Sun, Moon } from "lucide-react";
 import { ALL_LANGUAGES, PHRASES } from "./data/translationConfig.js";
-import { UNIFIED_TRANSLATIONS } from "./data/unifiedTranslations.js";
+import { TRANSLATIONS } from "./data/translationData.js";
 
 const STORAGE_KEY = "used-languages";
 const THEME_KEY = "theme-preference";
@@ -246,11 +246,11 @@ export default function App() {
   const translateCustomText = useCallback(
     async (text, setLoadingFn, setResultFn) => {
       if (!activeLang) return;
-      const unifiedResult = UNIFIED_TRANSLATIONS?.[text]?.[activeLang.code];
-      if (unifiedResult?.translation && !unifiedResult.error) {
+      const cachedResult = TRANSLATIONS?.[text]?.[activeLang.code];
+      if (cachedResult?.translation && !cachedResult.error) {
         setResultFn({
-          translation: unifiedResult.translation,
-          transliteration: unifiedResult.transliteration || null,
+          translation: cachedResult.translation,
+          transliteration: cachedResult.transliteration || null,
           error: false,
         });
         return;
@@ -283,7 +283,7 @@ export default function App() {
   );
 
   const handleChipClick = async (phrase) => {
-    const chipResult = UNIFIED_TRANSLATIONS?.[phrase]?.[activeLang?.code];
+    const chipResult = TRANSLATIONS?.[phrase]?.[activeLang?.code];
 
     if (!chipResult || chipResult.error || !chipResult.translation) {
       setTranslations((prev) => ({

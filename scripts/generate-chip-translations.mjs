@@ -1,13 +1,11 @@
-import { readFile, writeFile } from "node:fs/promises";
+import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { ALL_LANGUAGES, PHRASES } from "../src/data/translationConfig.js";
-import { PRELOADED_CORE_TRANSLATIONS } from "../src/data/preloadedCoreTranslations.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const OUT_PATH = path.resolve(__dirname, "../src/data/unifiedTranslations.js");
 const CHIP_PATH = path.resolve(__dirname, "../src/data/chipTranslations.json");
 
 function normalizeEntry(entry) {
@@ -32,20 +30,6 @@ function normalizeEntry(entry) {
   };
 }
 
-function resolveEntry(phrase, langCode, chipTranslations) {
-  const preloaded = PRELOADED_CORE_TRANSLATIONS?.[phrase]?.[langCode];
-  if (preloaded?.translation && !preloaded.error) {
-    return normalizeEntry(preloaded);
-  }
-
-  const chip = chipTranslations?.[phrase]?.[langCode];
-  if (chip?.translation && !chip.error) {
-    return normalizeEntry(chip);
-  }
-
-  return normalizeEntry(preloaded ?? chip ?? null);
-}
-
 async function main() {
   const chipFile = await readFile(CHIP_PATH, "utf-8");
   const chipTranslations = JSON.parse(chipFile);
@@ -55,13 +39,11 @@ async function main() {
   for (const phrase of PHRASES) {
     result[phrase] = {};
     for (const lang of ALL_LANGUAGES) {
-      result[phrase][lang.code] = resolveEntry(phrase, lang.code, chipTranslations);
+      result[phrase][lang.code] = normalizeEntry(chipTranslations?.[phrase]?.[lang.code]);
     }
   }
 
-  const content = `export const UNIFIED_TRANSLATIONS = ${JSON.stringify(result, null, 2)};\n`;
-  await writeFile(OUT_PATH, content, "utf-8");
-  console.log(`Saved unified translations to ${OUT_PATH}`);
+  console.log(`Validated ${Object.keys(result).length} phrases in ${CHIP_PATH}`);
 }
 
 main().catch((error) => {

@@ -53,7 +53,9 @@ npm run preview
 
 ## Translation data setup
 
-- Clickable chip translations are stored statically in `src/data/chipTranslations.json`.
+- API translations are cached in `src/data/chipTranslations.json`.
+- Curated corrections are stored in `src/data/preloadedCoreTranslations.js` and take priority over the cache.
+- The app combines both sources at runtime in `src/data/translationData.js`.
 - Source phrases and language configuration live in `src/data/translationConfig.js`.
 - Free custom input translations use the MyMemory API (`https://api.mymemory.translated.net/get`).
 
@@ -69,7 +71,7 @@ This script:
 
 - translates each phrase from German (`de`) to every configured target language,
 - retries on temporary API errors,
-- writes output to `src/data/chipTranslations.json`.
+- validates the configured entries in `src/data/chipTranslations.json`; the app resolves the cache and curated corrections at runtime.
 
 ## Notes and limits
 

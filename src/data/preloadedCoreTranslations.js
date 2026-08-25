@@ -309,36 +309,11 @@ export const PRELOADED_CORE_TRANSLATIONS = {
       "error": false,
       "message": null
     },
-    "es": {
-      "translation": null,
-      "transliteration": null,
-      "error": true,
-      "message": "missing translation"
-    },
-    "ru": {
-      "translation": null,
-      "transliteration": null,
-      "error": true,
-      "message": "missing translation"
-    },
-    "nl": {
-      "translation": null,
-      "transliteration": null,
-      "error": true,
-      "message": "missing translation"
-    },
-    "zh": {
-      "translation": null,
-      "transliteration": null,
-      "error": true,
-      "message": "missing translation"
-    },
-    "ar": {
-      "translation": null,
-      "transliteration": null,
-      "error": true,
-      "message": "missing translation"
-    }
+    "es": { "translation": "Buenos días." },
+    "ru": { "translation": "Доброе утро." },
+    "nl": { "translation": "Goede morgen." },
+    "zh": { "translation": "早上好。" },
+    "ar": { "translation": "صباح الخير." }
   },
   "Danke": {
     "ja": {
@@ -362,11 +337,7 @@ export const PRELOADED_CORE_TRANSLATIONS = {
       "transliteration": null,
       "error": false
     },
-    "ko": {
-      "translation": "goma woyo",
-      "transliteration": null,
-      "error": false
-    },
+    "ko": { "translation": "고마워요" },
     "el": {
       "translation": "Σας ευχαριστώ",
       "transliteration": null,
