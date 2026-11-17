@@ -1,14 +1,14 @@
 {
   "name": "langlette-app",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "node scripts/validate-phrasebook.mjs && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "generate:translations": "node scripts/generate-chip-translations.mjs"
+    "validate": "node scripts/validate-phrasebook.mjs"
   },
   "dependencies": {
     "lucide-react": "^1.28.0",

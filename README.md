@@ -1,81 +1,65 @@
 # langlette
-Language Roulette - Langlette is a React + Vite mini app for playful language practice 🎯: spin the roulette 🎡 to pick a random language, translate common German phrases in one click 💬, copy results instantly 📋, and try custom translations via MyMemory 🌍. Includes history tracking 🕘 and light/dark mode 🌗.
 
-# Language Roulette App
-
-Language Roulette aka Langlette is a small React + Vite language practice app.
-It randomly picks a language from a predefined pool, then lets you translate common German phrases into that selected language.
-
-The app is built for quick speaking practice, travel prep, and playful language exploration.
+Language Roulette – Langlette is a React + Vite mini app for playful language practice 🎯: spin the roulette 🎡 to pick a random language, reveal common German phrases in that language 💬, hear how they're pronounced 🔊, copy them instantly 📋, and try your own sentences via MyMemory 🌍. Includes history tracking 🕘 and light/dark mode 🌗.
 
 ## What the app does
 
-- Randomly selects a language with a roulette-style animation.
-- Prevents repeats by tracking already used languages in local storage.
-- Lets you confirm or reject the drawn language.
-- Shows phrase chips for common German expressions.
-- Copies chip translations to clipboard on click.
-- Supports custom text translation from German to the active target language.
-- Includes light/dark theme toggle with stored preference.
+- Randomly selects one of **83 languages** with a split-flap roulette animation.
+- Avoids repeats by remembering already drawn languages in `localStorage`.
+- Shows 10 everyday German phrases; tap one to reveal and copy the translation, or reveal all at once.
+- Shows a **romanization** (pronunciation aid) for every non-Latin script.
+- **Speaker button** reads phrases aloud via the browser's Web Speech API. If the device has no voice for a language, the button opens Google Translate instead (marked with a small ↗ icon).
+- Free-text translation from German via the MyMemory API (machine translation, clearly labelled as such). Known phrases are answered from the curated phrasebook instead.
+- Light/dark theme toggle (stored; falls back to the system preference).
 
 ## Tech stack
 
-- React
-- Vite
+- React 19, Vite
 - lucide-react icons
-- MyMemory Translation API (for custom input translation and translation generation script)
+- Web Speech API (`speechSynthesis`) for pronunciation
+- MyMemory Translation API for custom input
 
 ## Quick start
 
-Install dependencies:
-
 ```bash
 npm install
+npm run dev        # dev server
+npm run validate   # check the phrasebook
+npm run build      # validates, then builds to dist/
+npm run preview    # preview the production build
 ```
 
-Start the development server:
+Pushing to `main` deploys to GitHub Pages via `.github/workflows/deploy.yml`.
 
-```bash
-npm run dev
+## Phrasebook
+
+All languages and translations live in **one file**: `src/data/phrasebook.js`.
+
+```js
+{
+  code: "ja",            // ISO 639 code (also used for MyMemory + Google Translate)
+  tts: "ja-JP",          // BCP-47 tag used to pick a speech voice
+  de: "Japanisch",
+  native: "日本語",
+  regions: "Japan",
+  phrases: [             // same order as PHRASES
+    ["おはようございます", "Ohayō gozaimasu"],   // [text, romanization] for non-Latin scripts
+    // "Text" for Latin scripts, null if there is no common equivalent
+  ],
+}
 ```
 
-Build for production:
+`npm run validate` checks that every language has all phrases, codes are unique, non-Latin text has a romanization, and flags typical machine-translation artefacts (broken encoding, subtitle dashes, untranslated "Bon appétit"). The build fails if the check fails.
 
-```bash
-npm run build
-```
+### Conventions
 
-Preview the production build:
-
-```bash
-npm run preview
-```
-
-## Translation data setup
-
-- API translations are cached in `src/data/chipTranslations.json`.
-- Curated corrections are stored in `src/data/preloadedCoreTranslations.js` and take priority over the cache.
-- Additional quality corrections are stored in `src/data/curatedTranslationOverrides.js` and take highest priority.
-- The app combines both sources at runtime in `src/data/translationData.js`.
-- Source phrases and language configuration live in `src/data/translationConfig.js`.
-- Free custom input translations use the MyMemory API (`https://api.mymemory.translated.net/get`).
-
-## Generate chip translations
-
-Run the generator to rebuild all chip translations for all configured target languages:
-
-```bash
-npm run generate:translations
-```
-
-This script:
-
-- translates each phrase from German (`de`) to every configured target language,
-- retries on temporary API errors,
-- validates the configured entries in `src/data/chipTranslations.json`; the app resolves the cache and curated corrections at runtime.
+- *Bitte* = "please" (a request), not "you're welcome".
+- *Wie geht es dir?* uses the informal form where a language distinguishes it.
+- *Entschuldigung* = the polite "sorry / excuse me".
+- *Ich liebe dich* uses the male-speaker form where grammar requires a choice (Hindi, Urdu, Punjabi, Hebrew, Vietnamese).
+- Portuguese follows Brazilian usage.
 
 ## Notes and limits
 
-- MyMemory is free to use but translation quality can vary by language.
-- Rate limits may apply; the generator includes small delays and retries.
-- Transliteration data is not reliably returned by MyMemory and is stored as `null` when unavailable.
+- Which voices are available depends on the OS and browser (Safari/iOS and Android ship many; desktop Chrome/Firefox fewer). Smaller languages such as Quechua, Guaraní or Samoan usually fall back to Google Translate.
+- MyMemory is free but rate-limited and quality varies by language.
